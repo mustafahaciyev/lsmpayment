@@ -50,7 +50,8 @@ public class CourseServiceImpl implements CourseService {
         Course course = courseRepository.findByCourseName(courseName)
                 .orElseThrow(() -> new CourseNotFoundException("Course not found"));
 
-        Student student = studentRepository.findByName(studentName).orElseThrow(() -> new StudentNotFoundException("Student not found"));
+        Student student = studentRepository.findByName(studentName)
+                .orElseThrow(() -> new StudentNotFoundException("Student not found"));
         course.getStudents().add(student);
         courseRepository.save(course);
     }
