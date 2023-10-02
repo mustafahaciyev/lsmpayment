@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  postgres:
+    container_name: payment
+    image: postgres
+    environment:
+      POSTGRES_USER: payment
+      POSTGRES_PASSWORD: 1234
+      PGDATA: /data/postgres
+    volumes:
+      - postgres:/data/payment
+    ports:
+      - "5432:5432"
+volumes:
+  postgres:
